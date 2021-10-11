@@ -82,27 +82,8 @@ public:
         strcat(res, tmp2);
         return res;
     }
-    thoigian operator +(thoigian a)
-    {
-        thoigian tmp;
-        tmp.gio = this -> gio + a.gio;
-        tmp.ngay = this -> ngay + a.ngay;
-        tmp.rutgon();
-        return tmp;
-    }
-    thoigian operator -(thoigian a)
-    {
-        thoigian tmp;
-        tmp.gio = this -> gio - a.gio;
-        tmp.ngay = this -> ngay - a.ngay;
-        if(tmp.gio <= 0)
-        {
-            tmp.gio += 24;
-            tmp.ngay--;
-        }
-        tmp.rutgon();
-        return tmp;
-    }
+    friend thoigian operator +(thoigian a, thoigian b);
+    friend thoigian operator -(thoigian a, thoigian b);
     thoigian operator *(thoigian a)
     {
         thoigian tmp;
@@ -120,6 +101,29 @@ public:
         return tmp;
     }
 };
+
+thoigian operator +(thoigian a, thoigian b)
+{
+    thoigian tmp;
+    tmp.gio = a.gio + b.gio;
+    tmp.ngay = a.ngay + b.ngay;
+    tmp.rutgon();
+    return tmp;
+}
+
+thoigian operator -(thoigian a, thoigian b)
+{
+    thoigian tmp;
+    tmp.gio = a.gio - b.gio;
+    tmp.ngay = a.ngay - b.ngay;
+    if(tmp.gio <= 0)
+    {
+        tmp.gio += 24;
+        tmp.ngay--;
+    }
+    tmp.rutgon();
+    return tmp;
+}
 
 int main()
 {

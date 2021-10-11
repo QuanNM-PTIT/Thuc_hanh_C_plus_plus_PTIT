@@ -1,4 +1,4 @@
-# Thuc-hanh-C-plus-plus
+# Thực hành Ngôn ngữ lập trình C++
 
 **Full source code các bài thực hành môn Ngôn ngữ lập trình C++**
 

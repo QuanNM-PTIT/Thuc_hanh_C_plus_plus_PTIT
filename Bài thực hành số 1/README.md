@@ -70,5 +70,3 @@
 
 **CHIA HẾT CHO 11**
 ![IMG_1449](https://user-images.githubusercontent.com/84088181/136787157-900769ad-69e8-46be-8b1b-6bd699386c42.PNG)
-
-

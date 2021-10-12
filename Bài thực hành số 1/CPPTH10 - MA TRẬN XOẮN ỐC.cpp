@@ -20,25 +20,54 @@ using namespace std;
 #define vb vector<bool>
 #define endl '\n'
 
-bool check(string &s)
-{
-    int len = s.length() / 2;
-    F(i, 0, len) if(s[i] != s[s.length() - i - 1]) return 0;
-    return 1;
-}
-
 int main()
 {
     faster();
     int t;
     cin >> t;
-    string s;
     while(t--)
     {
-        cin >> s;
-        if(check(s)) cout << "YES" << endl;
-        else cout << "NO" << endl;
+        int n, m, soHang, soCot, vtHang, vtCot, cnt = 1;
+        cin >> n >> m;
+        int a[n][m];
+        for(int i = 0; i < n; i++) for(int j = 0; j < m; j++) cin >> a[i][j];
+        int ans[n * m], idx = 0;
+        soHang = n;
+        soCot = m;
+        vtHang = vtCot = 0;
+        while(cnt <= m * n)
+        {
+            for(int i = vtCot; i < soCot; i++)
+            {
+                ans[idx] = a[vtHang][i];
+                cnt++;
+                idx++;
+            }
+            for(int i = vtHang + 1; i < soHang; i++)
+            {
+                ans[idx] = a[i][soCot - 1];
+                cnt++;
+                idx++;
+            }
+            for(int i = soCot - 2; i >= vtCot; i--)
+            {
+                ans[idx] = a[soHang - 1][i];
+                cnt++;
+                idx++;
+            }
+            for(int i = soHang - 2; i > vtHang; i--)
+            {
+                ans[idx] = a[i][vtCot];
+                cnt++;
+                idx++;
+            }
+            vtHang++;
+            vtCot++;
+            soHang--;
+            soCot--;
+        }
+        for(int i = 0; i < n * m; i++) cout << ans[i] << ' ';
+        cout << endl;
     }
     return 0;
 }
-

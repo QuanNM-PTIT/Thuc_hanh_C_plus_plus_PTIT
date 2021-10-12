@@ -27,11 +27,11 @@ int main()
     cin >> t;
     while(t--)
     {
-        int n, k;
+        ll n, k;
         cin >> n >> k;
-        int a[n];
+        ll a[n];
         for(int &i : a) cin >> i;
-        int start;
+        ll start;
         long long cnt = 0;
         sort(a, a + n);
         F(i, 0, n)

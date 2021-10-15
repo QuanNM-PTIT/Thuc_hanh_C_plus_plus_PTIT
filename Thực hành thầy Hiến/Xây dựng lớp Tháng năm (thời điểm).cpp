@@ -90,11 +90,11 @@ public:
         }
         return a;
     }
-    friend bool operator >(thangnam a, thangnam b)
+    bool operator >(thangnam b)
     {
-        if(a.nam > b.nam) return 1;
-        if(a.nam < b.nam) return 0;
-        if(a.thang > b.thang) return 1;
+        if(nam > b.nam) return 1;
+        if(nam < b.nam) return 0;
+        if(thang > b.thang) return 1;
         return 0;
     }
 };

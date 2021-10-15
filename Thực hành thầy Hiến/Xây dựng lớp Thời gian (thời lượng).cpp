@@ -8,6 +8,7 @@ class thoigian
 {
 private:
     int ngay, gio;
+    friend thoigian Thoigian(char* a);
 public:
     thoigian(int ngay, int gio)
     {
@@ -33,31 +34,14 @@ public:
         ngay += tmp / 24;
         gio = tmp % 24;
     }
-    thoigian Thoigian(char *a)
-    {
-        thoigian tmp(0, 0);
-        int i = 0;
-        for(; i < strlen(a); ++i)
-        {
-            if(isdigit(*(a + i))) tmp.ngay = tmp.ngay * 10 + *(a + i) - '0';
-            else break;
-        }
-        while(isdigit(*(a + i)) == 0) ++i;
-        for(; i < strlen(a); ++i)
-        {
-            if(isdigit(*(a + i))) tmp.gio = tmp.gio * 10 + *(a + i) - '0';
-            else break;
-        }
-        return tmp;
-    }
-    char* convert(thoigian a)
+    operator char*()
     {
         char *res = new char[105];
         stack<char> st;
-        while(a.ngay)
+        while(ngay)
         {
-            st.push(a.ngay % 10 + '0');
-            a.ngay /= 10;
+            st.push(ngay % 10 + '0');
+            ngay /= 10;
         }
         int i = 0;
         while(!st.empty())
@@ -68,10 +52,10 @@ public:
         char tmp[] = " ngay ";
         i += 6;
         strcat(res, tmp);
-        while(a.gio)
+        while(gio)
         {
-            st.push(a.gio % 10 + '0');
-            a.gio /= 10;
+            st.push(gio % 10 + '0');
+            gio /= 10;
         }
         while(!st.empty())
         {
@@ -101,6 +85,24 @@ public:
         return tmp;
     }
 };
+
+thoigian Thoigian(char* a)
+{
+    thoigian tmp(0, 0);
+    int i = 0;
+    for(; i < strlen(a); ++i)
+    {
+        if(isdigit(*(a + i))) tmp.ngay = tmp.ngay * 10 + *(a + i) - '0';
+        else break;
+    }
+    while(isdigit(*(a + i)) == 0) ++i;
+    for(; i < strlen(a); ++i)
+    {
+        if(isdigit(*(a + i))) tmp.gio = tmp.gio * 10 + *(a + i) - '0';
+        else break;
+    }
+    return tmp;
+}
 
 thoigian operator +(thoigian a, thoigian b)
 {
@@ -133,8 +135,8 @@ int main()
     a.xemmh();
     c = a - b;
     c.xemmh();
-    a = a.Thoigian((char *)"2 ngay 20 gio");
+    a = Thoigian((char *)"2 ngay 20 gio");
     a.xemmh();
-    cout << b.convert(b) << endl;
+    cout << (char*)(b) << endl;
     return 0;
 }

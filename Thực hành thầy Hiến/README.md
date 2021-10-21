@@ -10,3 +10,8 @@
 
 ![IMG_1554](https://user-images.githubusercontent.com/84088181/137446527-308e83b8-85b7-4867-972f-4951079f4d2a.PNG)
 
+**3. Xây dựng lớp hỗn số:**
+
+![IMG_1770](https://user-images.githubusercontent.com/84088181/138300503-f5f4c791-a46a-4b96-861a-f650d617abca.jpg)
+
+

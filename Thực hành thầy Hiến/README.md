@@ -14,4 +14,9 @@
 
 ![IMG_1770](https://user-images.githubusercontent.com/84088181/138300503-f5f4c791-a46a-4b96-861a-f650d617abca.jpg)
 
+**4. Xây dựng lớp Tháng năm (thời điểm) ver2:**
+
+![245496922_557672478673142_640728636218508974_n](https://user-images.githubusercontent.com/84088181/138460063-7670eb71-2a56-4c10-b644-6fb706b20b67.png)
+
+
 

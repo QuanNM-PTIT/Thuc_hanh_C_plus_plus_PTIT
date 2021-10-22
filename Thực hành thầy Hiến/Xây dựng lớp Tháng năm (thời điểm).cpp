@@ -15,28 +15,28 @@ public:
         this -> thang  = 0;
         this -> nam = 0;
     }
-
+    
     thangnam(int thang, int nam)
     {
         this -> thang = thang;
         this -> nam = nam;
     }
-
+    
     void nhapbp()
     {
         cin >> this -> thang >> this -> nam;
     }
-
+    
     void xemmh()
     {
         cout << "thang " << this -> thang << " nam " << this -> nam << endl;
     }
-
+    
     operator char*()
     {
-		thangnam tmp;
-		tmp.thang = thang;
-		tmp.nam = nam;
+        thangnam tmp;
+        tmp.thang = thang;
+        tmp.nam = nam;
         char *s = new char[105];
         stack<int> st;
         while(tmp.thang)
@@ -69,7 +69,7 @@ public:
         }
         return s;
     }
-
+    
     friend thangnam operator +(thangnam a, int n)
     {
         int tmp = a.thang;
@@ -84,7 +84,7 @@ public:
         }
         return a;
     }
-
+    
     friend thangnam operator -(thangnam a, int n)
     {
         int tmp = a.thang;
@@ -99,7 +99,7 @@ public:
         }
         return a;
     }
-
+    
     bool operator >(thangnam b)
     {
         if(nam > b.nam) return 1;
@@ -107,27 +107,27 @@ public:
         if(thang > b.thang) return 1;
         return 0;
     }
-
-	thangnam(char* s)
-	{
-		int tmp = 0;
-		int i = 0;
-		while(!isdigit(s[i])) ++i;
-		while(isdigit(s[i]))
-		{
-			tmp = tmp * 10 + s[i] - '0';
-			++i;
-		}
-		thang = tmp;
-		tmp = 0;
-		while(!isdigit(s[i])) ++i;
-		while(isdigit(s[i]))
-		{
-			tmp = tmp * 10 + s[i] - '0';
-			++i;
-		}
-		nam = tmp;
-	}
+    
+    thangnam(char* s)
+    {
+        int tmp = 0;
+        int i = 0;
+        while(!isdigit(s[i])) ++i;
+        while(isdigit(s[i]))
+        {
+            tmp = tmp * 10 + s[i] - '0';
+            ++i;
+        }
+        thang = tmp;
+        tmp = 0;
+        while(!isdigit(s[i])) ++i;
+        while(isdigit(s[i]))
+        {
+            tmp = tmp * 10 + s[i] - '0';
+            ++i;
+        }
+        nam = tmp;
+    }
 };
 
 int main()
@@ -144,3 +144,4 @@ int main()
     else cout << "a < b" << endl;
     return 0;
 }
+
